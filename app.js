@@ -1,3 +1,7 @@
+// Completed the crud operations using mysql integrated with node.js
+// Use postman for testing the APIs
+
+
 //jshint version:6
 
 
