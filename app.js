@@ -77,6 +77,16 @@ app.get("/getvalues",(req,res)=>{
     });
 });
 
+//select single value from database
+app.get("/getvalue/:id",(req,res)=>{
+    let sql=`select * from players where id=${req.params.id}`;
+    let query = db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("Fetched value from database");
+    });
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
