@@ -46,6 +46,17 @@ app.get("/createtable",(req,res)=>{
     });
 });
 
+//insert values
+app.get("/insert1",(req,res)=>{
+    let post={name:"lionel messi", position:"right winger"};
+    let sql='INSERT INTO players SET ?';
+    let query = db.query(sql,post,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("added player 1");
+    });
+});
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
