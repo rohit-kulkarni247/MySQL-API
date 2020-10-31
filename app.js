@@ -26,6 +26,15 @@ const app=express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
+// create database
+app.get("/createdb",(req,res)=>{
+    let sql='CREATE DATABASE nodemysql';
+    db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("Database created");
+    });
+});
 
 
 
