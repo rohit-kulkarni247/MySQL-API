@@ -87,6 +87,20 @@ app.get("/getvalue/:id",(req,res)=>{
     });
 });
 
+//update value
+app.get("/updatevalue/:id",(req,res)=>{
+    let newname="Sergio Ramos";
+    let sql=`update players set name= '${newname}' where id=${req.params.id}`;
+    let query = db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("updated a value");
+    });
+});
+
+
+
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
