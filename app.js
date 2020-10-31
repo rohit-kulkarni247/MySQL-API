@@ -57,6 +57,26 @@ app.get("/insert1",(req,res)=>{
     });
 });
 
+app.get("/insert2",(req,res)=>{
+    let post={name:"vincent kompany", position:"center back"};
+    let sql='INSERT INTO players SET ?';
+    let query = db.query(sql,post,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("added player 2");
+    });
+});
+
+//read data from database
+app.get("/getvalues",(req,res)=>{
+    let sql='select * from players';
+    let query = db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("Fetched data from database");
+    });
+});
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
