@@ -98,6 +98,15 @@ app.get("/updatevalue/:id",(req,res)=>{
     });
 });
 
+//delete player
+app.get("/deletevalue/:id",(req,res)=>{
+    let sql=`delete from players where id=${req.params.id}`;
+    let query = db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("player deleted from db");
+    });
+});
 
 
 
