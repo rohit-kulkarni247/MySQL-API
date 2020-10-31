@@ -13,6 +13,14 @@ const db=mysql.createConnection({
     //database: 'nodemysql' //write this after creating the database
 });
 
+//connect
+db.connect((err)=>{
+    if(err){
+       throw err;
+    }
+    console.log("MySQL Connected");
+});
+
 const app=express();
 
 app.use(bodyparser.json());
