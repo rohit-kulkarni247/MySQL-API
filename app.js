@@ -10,7 +10,7 @@ const db=mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'qwerty',
-    //database: 'nodemysql' //write this after creating the database
+    database: 'nodemysql' //write this after creating the database
 });
 
 //connect
@@ -36,7 +36,15 @@ app.get("/createdb",(req,res)=>{
     });
 });
 
-
+//create table
+app.get("/createtable",(req,res)=>{
+    let sql='CREATE TABLE players(id int auto_increment, name varchar(255), position varchar(255), PRIMARY KEY (id))';
+    db.query(sql,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send("table created");
+    });
+});
 
 
 let port = process.env.PORT;
