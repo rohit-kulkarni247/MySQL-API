@@ -5,6 +5,13 @@ const express=require('express');
 const mysql=require('mysql');
 const bodyparser=require('body-parser');
 
+//create Connection
+const db=mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'qwerty',
+    //database: 'nodemysql' //write this after creating the database
+});
 
 const app=express();
 
