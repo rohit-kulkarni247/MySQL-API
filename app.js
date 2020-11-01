@@ -7,7 +7,7 @@
 
 const express=require('express');
 const mysql=require('mysql');
-const bodyparser=require('body-parser');
+
 
 //create Connection
 const db=mysql.createConnection({
@@ -27,8 +27,6 @@ db.connect((err)=>{
 
 const app=express();
 
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
 
 // create database
 app.get("/createdb",(req,res)=>{
