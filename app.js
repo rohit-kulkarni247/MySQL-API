@@ -1,5 +1,5 @@
 // Completed the crud operations using mysql integrated with node.js
-// Use postman for testing the APIs
+// Postman for testing the APIs
 
 
 //jshint version:6
@@ -12,8 +12,8 @@ const bodyparser=require('body-parser');
 //create Connection
 const db=mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'qwerty',
+    user: 'process.env.USER',
+    password: 'process.env.PASSWORD',
     database: 'nodemysql' //write this after creating the database
 });
 
